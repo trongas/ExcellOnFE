@@ -1,0 +1,33 @@
+*Trang Admin
+
+1.Quản lý Dịch vụ:
+
+Thêm, sửa, xóa dịch vụ.
+Hiển thị danh sách các dịch vụ và mức giá cước tương ứng.
+
+2.Quản lý Bộ phận:
+
+Xem và quản lý thông tin về các bộ phận trong tổ chức (HR Management, Administration, Service, Training, Internet Security, Auditors).
+
+3.Quản lý Nhân sự:
+
+Thêm, sửa, xóa thông tin nhân viên dựa trên chức vụ và dịch vụ.
+Tìm kiếm và truy xuất thông tin nhân viên.
+
+4.Quản lý Khách hàng:
+
+Xem và quản lý thông tin khách hàng, dịch vụ ưa thích và sản phẩm/dịch vụ mà họ cung cấp.
+Tìm kiếm và truy xuất thông tin khách hàng.
+
+5.Quản lý Thanh toán:
+
+Ghi lại thông tin về thanh toán từ khách hàng.
+Tạo báo cáo về thanh toán muộn, thanh toán và các báo cáo liên quan khác.
+
+6.Báo cáo và Thống kê:
+
+Tạo báo cáo về thanh toán muộn, thanh toán, khách hàng và nhân viên dựa trên dịch vụ trong khoảng thời gian cụ thể.
+
+7.Tìm kiếm Nâng cao:
+
+Cung cấp tùy chọn tìm kiếm nâng cao để truy xuất thông tin theo các tiêu chí cụ thể.

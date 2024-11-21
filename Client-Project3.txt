@@ -1,0 +1,30 @@
+Trang Khách hàng (Client):
+
+1.Xem Dịch vụ và Mức giá cước:
+
+Xem danh sách các dịch vụ và mức giá cước tương ứng.
+
+2.Đặt Dịch vụ:
+
+Chọn và đặt các dịch vụ mà họ quan tâm.
+Xem tổng chi phí dựa trên dịch vụ đã chọn.
+
+3.Xem Thông tin Cá nhân:
+
+Xem và cập nhật thông tin cá nhân, dịch vụ ưa thích và sản phẩm/dịch vụ cung cấp (nếu có).
+
+4.Thanh toán:
+
+Thực hiện thanh toán cho các dịch vụ đã chọn.
+
+5.Xem Lịch sử Thanh toán:
+
+Xem lịch sử thanh toán và thông báo về thanh toán muộn (nếu có).
+
+6.Báo cáo và Thống kê cá nhân:
+
+Xem báo cáo cá nhân về thanh toán, dịch vụ và nhân viên phục vụ.
+
+7.Có một phần About Us :
+
+Giới thiệu về công ty , trang web .
