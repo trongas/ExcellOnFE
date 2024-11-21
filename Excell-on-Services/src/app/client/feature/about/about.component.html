@@ -1,0 +1,98 @@
+<div class="w-full">
+    <div class="hero-header bg-[url('/assets/images/servicesBg.png')] bg-cover">
+        <div class="container mx-auto py-5 lg:px-0">
+            <div class="grid grid-cols-1 lg:grid-cols-1">
+                <div class="col-span-full text-center">
+                    <!-- <h1 class="text-4xl text-event">About Us</h1> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="mx-20">
+        <div class="">
+            <div class="grid grid-cols-2 gap-4 items-center">
+
+                <div class="order-first md:order-none text-center md:text-start hidden md:block"><img
+                        class="w-full md:mb-4" src="../../../assets/images/servicesItem2.png" alt="" />
+                </div>
+                <div class="text-center md:text-start md:offset-1 col-start-2 col-span-4">
+                    <h2 class="text-4xl font-bold leading-loose">
+                        Excell-on Consulting Services
+                    </h2>
+                    <p class="my-4 text-md md:pe-xl-5 md:text-xl">Excell-on Consulting Services (ECS) helps
+                        organizations
+                        develop innovative
+                        business and commerce strategies and solutions. These solutions allow their (organizations, say
+                        clients of Excell-on Consulting Services) customers to capitalize on new technologies to create
+                        innovative products and services for the economy. Their consulting team stays focused on
+                        defining,
+                        optimizing, and aligning their clients business and IT strategies.</p>
+                    <div>
+                        <a class="mx-1 text-white bg-[#46b9ef] rounded-full p-3 hover:bg-[#4e99f7]"
+                            role="button"><i class="fa-solid fa-phone-volume fa-shake mx-2"></i>0909090909</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="mx-20 my-10">
+        <h1 class="pb-3 text-center font-bold text-2xl">Creative & Make Perfect</h1>
+        <div class="">
+            <p class="my-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+                ipsum suspendisse ultrices gravida Risus.
+            </p>
+        </div>
+        <div class="grid mx-14">
+            <div class="flex justify-between mb-1">
+                <span class="text-base font-medium dark:text-white">Satisfaction Guaranteed</span>
+                <span class="text-sm font-medium text-[#06346d] dark:text-white">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                <div class="bg-blue-300 h-2.5 rounded-full " style="width: 85%"></div>
+            </div>
+            <div class="flex justify-between mb-1">
+                <span class="text-base font-medium dark:text-white">Happy Customers</span>
+                <span class="text-sm font-medium text-[#06346d] dark:text-white">45%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                <div class="bg-blue-300 h-2.5 rounded-full " style="width: 45%"></div>
+            </div>
+            <div class="flex justify-between mb-1">
+                <span class="text-base font-medium dark:text-white">Businesses participate</span>
+                <span class="text-sm font-medium text-[#06346d] dark:text-white">65%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                <div class="bg-blue-300 h-2.5 rounded-full " style="width: 65%"></div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section class="mx-20">
+        <swiper-container class="mySwiper" space-between="0" loop="true" centered-slides="true" autoplay-delay="1000"
+            autoplay-disable-on-interaction="false" slides-per-view="6">
+            <swiper-slide *ngFor="let customer of customers">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="flex flex-col items-center text-center rounded p-4">
+                        <div class="flex-shrink-0 grayscale w-24">
+                            <img class="" [src]="customer.imageSrc" alt="{{ customer.altText }}">
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    </section>
+
+</div>

@@ -1,0 +1,119 @@
+<div class="md:w-[calc(100%-256px)] md:ml-64 bg-white min-h-screen transition-all p-8">
+    <div class="rounded-xl">
+        <div class="grid grid-cols-12">
+            <div class="col-span-6">
+                <div class="relative ml-3 mt-3 mb-6">
+                    <div class=" absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                                    stroke="#06283D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <input type="text" id="input-group-1" matInput (keyup)="applyFilter($event)" placeholder="ser"
+                        #input
+                        class="bg-gray-50 radius border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-300 dark:focus:border-blue-300"
+                        placeholder="Search...">
+
+
+                </div>
+            </div>
+            <div class="col-span-6 mt-3 mb-6 grid justify-items-end">
+                <button
+                    class="ml-2 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-blue-300 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-200/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                    type="button" (click)="createService()"><i class="fa-solid fa-plus mr-2"></i>
+                    Create Service
+                </button>
+            </div>
+        </div>
+        <div class="mat-elevation-z8 overflow-x-auto mb-8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                    <td mat-cell *matCellDef="let row; let index = index"> {{index + 1}}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="serviceName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.serviceName}} </td>
+                </ng-container>
+
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+                    <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+                </ng-container>
+
+                <!-- Total Day Column -->
+                <!-- <ng-container matColumnDef="totalDay">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Day </th>
+                <td mat-cell *matCellDef="let row"> {{row.totalDay}} </td>
+            </ng-container> -->
+
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let row" class="flex mt-14">
+                        <button (click)="openServiceChargeDialog(row.serviceId, row.serviceName)"
+                            class="text-blueGray-500 pb-10 px-3 transition">
+                            <i class="fa-solid fa-list text-[#FBA834] text-xl"></i>
+                        </button>
+                        <button (click)="openEditForm(row)" class="text-blueGray-500 pb-10 px-3 transition">
+                            <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                                fill="none">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path fill="#62CDFF" fill-rule="evenodd"
+                                        d="M15.747 2.97a.864.864 0 011.177 1.265l-7.904 7.37-1.516.194.653-1.785 7.59-7.044zm2.639-1.366a2.864 2.864 0 00-4-.1L6.62 8.71a1 1 0 00-.26.39l-1.3 3.556a1 1 0 001.067 1.335l3.467-.445a1 1 0 00.555-.26l8.139-7.59a2.864 2.864 0 00.098-4.093zM3.1 3.007c0-.001 0-.003.002-.005A.013.013 0 013.106 3H8a1 1 0 100-2H3.108a2.009 2.009 0 00-2 2.19C1.256 4.814 1.5 7.848 1.5 10c0 2.153-.245 5.187-.391 6.81A2.009 2.009 0 003.108 19H17c1.103 0 2-.892 2-1.999V12a1 1 0 10-2 0v5H3.106l-.003-.002a.012.012 0 01-.002-.005v-.004c.146-1.62.399-4.735.399-6.989 0-2.254-.253-5.37-.4-6.99v-.003zM17 17c-.001 0 0 0 0 0zm0 0z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </button>
+
+                        <button (click)="deleteService(row.serviceId)" class="text-blueGray-500 pb-10 px-3 transition">
+                            <svg fill="#EB4747" width="20px" height="20px" viewBox="0 0 32 32" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xml:space="preserve" xmlns:serif="http://www.serif.com/"
+                                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M11,4.5l10,0c0.828,-0 1.5,-0.672 1.5,-1.5c-0,-0.828 -0.672,-1.5 -1.5,-1.5l-10,0c-0.828,-0 -1.5,0.672 -1.5,1.5c-0,0.828 0.672,1.5 1.5,1.5Z">
+                                    </path>
+                                    <path
+                                        d="M5,9.5l0,16.5c0,2.761 2.239,5 5,5l12,0c2.761,0 5,-2.239 5,-5l0,-16.5l1.645,0c0.748,-0 1.355,-0.672 1.355,-1.5c-0,-0.828 -0.607,-1.5 -1.355,-1.5l-25.29,0c-0.748,-0 -1.355,0.672 -1.355,1.5c-0,0.828 0.607,1.5 1.355,1.5l1.645,0Zm7,3.5l0,12c-0,0.552 0.448,1 1,1c0.552,0 1,-0.448 1,-1l0,-12c-0,-0.552 -0.448,-1 -1,-1c-0.552,0 -1,0.448 -1,1Zm6,-0l0,12c0,0.552 0.448,1 1,1c0.552,-0 1,-0.448 1,-1l0,-12c0,-0.552 -0.448,-1 -1,-1c-0.552,-0 -1,0.448 -1,1Z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </button>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"
+                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                </tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </div>
+</div>

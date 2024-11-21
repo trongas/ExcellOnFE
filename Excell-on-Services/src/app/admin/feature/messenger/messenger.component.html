@@ -1,0 +1,84 @@
+<div class="md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 mt-13 min-h-screen transition-all">
+  <div class="h-screen w-full flex antialiased text-gray-200 bg-white overflow-hidden">
+    <div class="flex-1 flex flex-col">
+      <main class="flex-grow flex flex-row min-h-0">
+        <section class="flex flex-col flex-auto border-l border-gray-300">
+          <div *ngIf="selectedGroup" class="chat-section">
+            <div class="chat-header px-2 py-4 flex flex-row flex-none justify-between items-center shadow">
+              <div class="flex items-center ml-2">
+                <div
+                  class="w-12 h-12 relative flex flex-shrink-0 rounded-full bg-gray-300 text-white justify-center items-center cursor-pointer">
+                  <span class="text-lg font-bold">
+                    {{ getInitials(selectedGroup.customerName) }}
+                  </span>
+                </div>
+                <div class="ml-3 mt-2">
+                  <p class="font-bold text-black text-[16px]">
+                    {{ selectedGroup.customerName }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div #scrollContainer class="chat-body flex-1 p-4 overflow-y-scroll">
+              <div *ngFor="let msg of message" class="message">
+                <div *ngIf="msg.senderUserName=== employee.email" class="message-right">
+                  <div class="message-content">
+                    {{msg.content}}
+                  </div>
+                </div>
+                <div *ngIf="msg.senderUserName != employee.email" class="message-left">
+                  <div class="message-content">
+                    {{msg.content}}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="chat-footer flex-none w-full bg-white fixed bottom-0">
+              <div class="flex items-center p-4 w-full">
+                <div class="grid grid-cols-10 w-full">
+                  <div class="relative col-span-6">
+                    <label>
+                      <input
+                        class="rounded-full w-11/12 mr-5 border border-gray-300 focus:border-gray-100 bg-gray-50 focus:outline-none text-black focus:shadow-md transition duration-300 ease-in"
+                        type="text" value="" placeholder="Aa" [(ngModel)]="messageContent" />
+                    </label>
+                  </div>
+                  <button type="button"
+                    class="flex flex-shrink-0 button-send text-lg mt-3 focus:outline-none block text-blue-600 hover:text-blue-700 col-span-2"
+                    (click)="sendChatMessage(messageContent)">
+                    <i class="fa-regular fa-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="flex flex-col  flex-none overflow-auto w-28 border border-l-1 hover:w-60 group lg:max-w-sm md:w-1/5 duration-300 ease-in-out">
+          <div class="contacts p-2 flex-1 overflow-y-scroll">
+            <!-- ngFor loop starts here -->
+            <div *ngFor="let group of groups"
+              class="flex justify-between items-center p-3 hover:bg-gray-300 rounded-lg relative">
+              <!-- [style.background-color]="randomColor()" -->
+              <div
+                class="w-12 h-12 relative flex flex-shrink-0 rounded-full bg-gray-300 text-white justify-center items-center cursor-pointer"
+                (click)="showChat(group)">
+                <span class="text-lg font-bold">
+                  {{ getInitials(group.customerName) }}
+                </span>
+              </div>
+              <div class="flex-auto min-w-0 ml-4 mr-6 hidden md:block group-hover:block">
+                <p class="text-black font-bold text-[16px] cursor-pointer" (click)="showChat(group)">
+                  {{ group.customerName }}
+                </p>
+              </div>
+            </div>
+            <!-- ngFor loop ends here -->
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</div>

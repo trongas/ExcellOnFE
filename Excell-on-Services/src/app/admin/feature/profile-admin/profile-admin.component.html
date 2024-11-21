@@ -1,0 +1,182 @@
+<form [formGroup]="empForm">
+    <div class="md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 mt-16 min-h-screen transition-all ">
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-8/12 px-4 ">
+                <div 
+                    class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                    <div class="rounded-t bg-gray-100 mb-0 px-6 py-6">
+                        <div class="text-center flex justify-between ">
+                            <h6 class="text-blueGray-700 text-xl font-bold">My account</h6>
+                            <div *ngIf="showOptions">
+                                <!-- Nút Update -->
+                                <button *ngIf="!isEditing" (click)="startEditing()"
+                                    class="bg-blue-500 text-white active:bg-blue-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                    Update
+                                </button>
+
+                                <!-- Nút Change Password -->
+                                <button
+                                    class="bg-green-500 text-white active:bg-green-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                    Change Password
+                                </button>
+                            </div>
+                            <button (click)="toggleOptions()"
+                                class="bg-blue-400 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                type="button">
+                                Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                        <input formControlName="id" type="hidden" />
+                        <!-- Các trường thông tin người đăng nhập -->
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            User Information
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        First Name
+                                    </label>
+                                    <input type="text" formControlName="firstName"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        [(ngModel)]="isEditing ? editedUser.firstName : loggedInUser.firstName"
+                                        [readonly]="!isEditing" value="{{ loggedInUser?.firstName }}" />
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        Last Name
+                                    </label>
+                                    <input type="text" formControlName="lastName"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        [(ngModel)]="isEditing ? editedUser.lastName : loggedInUser.lastName"
+                                        [readonly]="!isEditing" value="{{ loggedInUser?.lastName }}" />
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        Date of birth
+                                    </label>
+                                    <input type="text" formControlName="dob"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        [(ngModel)]="isEditing ? editedUser.dob : loggedInUser.dob"
+                                        [readonly]="!isEditing" value="{{ loggedInUser?.dob }}" />
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        Email address
+                                    </label>
+                                    <input type="email" formControlName="email"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        [(ngModel)]="isEditing ? editedUser.email : loggedInUser.email"
+                                        [readonly]="!isEditing" value="{{ loggedInUser?.email }}" />
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        Phone Number
+                                    </label>
+                                    <input type="text" formControlName="phone"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        [(ngModel)]="isEditing ? editedUser.phone : loggedInUser.phone"
+                                        [readonly]="!isEditing" value="{{ loggedInUser?.phone }}" />
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        Department
+                                    </label>
+                                    <input type="text" formControlName="departmentId"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        [(ngModel)]="isEditing ? editedUser.departmentId : loggedInUser.departmentId"
+                                        [readonly]="!isEditing" value="{{ loggedInUser?.departmentId }}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mr-4">
+                            <button *ngIf="isEditing" (click)="cancelEditing()"
+                                class="bg-gray-500 text-white active:bg-gray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                Cancel
+                            </button>
+                            <button *ngIf="isEditing" (click)="saveChanges()" type="submit"
+                                class="bg-blue-500 text-white active:bg-blue-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                Save
+                            </button>
+                        </div>
+                        <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+                        <!-- Mục khác về người đăng nhập -->
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            About Me
+                        </h6>
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-12/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        About me
+                                    </label>
+                                    <textarea type="text"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        rows="4">{{ loggedInUser?.aboutMe }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-4/12 px-4">
+                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
+                    <div class="px-6">
+                        <div class="w-full px-4 flex justify-center">
+                            <div class="relative mt-5 pt-5">
+                                <!-- Hiển thị ảnh đại diện -->
+                                <img *ngIf="!isEditing" alt="..." src="{{ loggedInUser?.avatar }}"
+                                    class="max-w-10-px rounded-circle" />
+
+                                <!-- Hiển thị ảnh đại diện khi đang trong chế độ chỉnh sửa -->
+                                <!-- <img *ngIf="isEditing && !selectedFile" alt="..." src="{{ loggedInUser?.avatar }}"
+                                    class="max-w-10-px rounded-circle" /> -->
+
+                                <!-- Nút chọn ảnh mới khi đang trong chế độ chỉnh sửa -->
+                                <div *ngIf="isEditing">
+                                    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-12">
+                            <!-- Hiển thị tên người đăng nhập -->
+                            <h3
+                                class="text-xl text-transform: uppercase font-semibold leading-normal mb-2 text-blueGray-700">
+                                {{ loggedInUser?.firstName }} {{ loggedInUser?.lastName }}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="updating" class="overlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</form>

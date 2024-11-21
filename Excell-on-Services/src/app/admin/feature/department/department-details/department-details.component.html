@@ -1,0 +1,42 @@
+<div class="w-full mx-2 h-full">
+
+  <div *ngIf="employee" class="bg-white pb-3">
+    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+      <img src="{{ employee.avatar }}" class="h-12 w-12 bg-white rounded-full border mr-2" alt="Employee Avatar" />
+      <span class="tracking-wide">About</span>
+    </div>
+    <div class="text-gray-700">
+      <div class="grid md:grid-cols-2 text-sm">
+        <div class="grid grid-cols-2">
+          <div class="px-4 py-2 font-semibold">First Name</div>
+          <div class=" py-2">{{employee.firstName }}</div>
+        </div>
+        <div class="grid grid-cols-2 ">
+          <div class="px-4 py-2 font-semibold">Last Name</div>
+          <div class=" py-2">{{
+            employee.lastName }}</div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="px-4 py-2 font-semibold">Gender</div>
+          <div class=" py-2">Female</div>
+        </div>
+        <div class="grid grid-cols-2 ">
+          <div class="px-4 py-2 font-semibold ">Contact No.</div>
+          <div class=" py-2">{{employee.phone}}</div>
+        </div>
+
+        <div class="grid grid-cols-2">
+          <div class="px-4 py-2 font-semibold">Email.</div>
+          <div class=" py-2">
+            <a class="">{{employee.email}}</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 ">
+          <div class="px-4 py-2 font-semibold">Birthday</div>
+          <div class=" py-2">{{employee.dob}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

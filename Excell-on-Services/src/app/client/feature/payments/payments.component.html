@@ -1,0 +1,90 @@
+<div class="hero-header bg-[url('/assets/images/servicesBg.png')] bg-cover">
+    <div class="mx-auto py-5 lg:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-1">
+            <div class="col-span-full text-center">
+                <h1 class="text-4xl text-event">Cart</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mb-20 bg-[url('/assets/images/servicesBg.png')] bg-cover bg-fixed">
+    <div class="grid grid-cols-12">
+        <div class="col-span-12 lg:col-span-8 lg:ml-10">
+            <div class="">
+                <div class="card-body">
+                    <div class="flex items-start border-b p-4" *ngFor="let charge of serviceCharges[userProfile?.id]">
+                        <div class="p-8 flex-grow-1 self-center overflow-hidden card bg-white shadow-md rounded-lg ">
+                            <div>
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-4">
+                                        <h4
+                                            class="truncate bg-gray-200 text-center font-bold text-red-800 border-b rounded-r-full">
+                                            {{charge.serviceChargesName}}</h4>
+                                    </div>
+                                    <button (click)="deleteCartItem(charge.cartId, userProfile?.id)"
+                                        class="col-span-8 flex justify-end">
+                                        <i class="fa-solid fa-trash text-[#2884da]"></i>
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-6">
+                                    <div class="col-span-4">
+                                        <p class="mb-0 mt-1"><span class="font-normal"> {{
+                                                charge.serviceChargesDescription }}
+                                            </span></p>
+                                    </div>
+                                    <div class="col-span-2 flex justify-end">
+                                        <p class="font-bold text-xl">{{ charge.price | currency}}</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-span-12 lg:col-span-4 bg-white shadow-md rounded-lg my-4 mr-5 ">
+            <div class="bg-transparent border-b py-3 px-4">
+                <h5 class="text-base mb-0">Order Summary <span class="float-right">#MN0124</span></h5>
+            </div>
+            <div class="card-body p-4 pt-2">
+                <div class="table-responsive">
+                    <table class="table mb-0 leading-10 w-full">
+                        <tbody>
+                            <tr>
+                                <td>Total :</td>
+                                <td class="text-end">{{ totalPrice | currency }}</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Number of days of use :</td>
+                                <td class="text-end">1</td>
+                            </tr> -->
+                            <tr>
+                                <td>Discount :</td>
+                                <td class="text-end">0%</td>
+                            </tr>
+                            <tr class="bg-gray-100">
+                                <th>Total :</th>
+                                <td class="text-end font-semibold">{{ totalPrice | currency }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid grid-cols-6 my-2">
+                    <div (click)="addOrder()"
+                        class="p-2 col-span-6 lg:col-span-12 font-medium bg-[#94c6fd] text-center rounded-[20px] hover:bg-[#2884da] hover:text-white">
+                        <a class="btn btn-link text-muted font-bold text-xl">
+                            <i class="fa-solid fa-money-check-dollar fa-bounce mx-2"></i>Pay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

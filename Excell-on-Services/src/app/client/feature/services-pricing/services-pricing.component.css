@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.description {
+  max-height: 4.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
+/* 
+---------------------------------------------
+Banner Style
+--------------------------------------------- 
+*/
+
+.main-banner {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 30px 150px 60px 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-banner:after {
+  content: '';
+  background-image: url(../../../../assets/images/home_overlay.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  top: 210px;
+  width: 50%;
+  height: 90%;
+  z-index: 1;
+}
+
+.main-banner .left-content {
+  margin-top: 50px;
+  margin-right: 120px;
+}
+
+.main-banner .left-content h2 {
+  z-index: 2;
+  position: relative;
+  font-weight: 700;
+  line-height: 70px;
+  font-size: 45px;
+}
+
+.main-banner .left-content p {
+  color: #2a2a2a;
+  font-weight: 400;
+}
+.image-banner{
+  margin-right: 80px;
+}

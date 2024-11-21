@@ -1,0 +1,49 @@
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  vertical-align: middle;
+  border-style: solid;
+  border-width: 4px 4px 0;
+  border-color: #333 transparent transparent transparent;
+}
+
+.asc {
+  transform: rotate(180deg);
+}
+
+.mat-mdc-table {
+  padding: 10px;
+}
+
+table {
+  border-collapse: none;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.mat-mdc-form-field {
+  border: none !important;
+}
+
+.radius {
+  border-radius: 20px;
+}
+
+th {
+  color: #06283D;
+  font-weight: bold;
+  font-size: medium;
+  background-color: #e5e7eb !important;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

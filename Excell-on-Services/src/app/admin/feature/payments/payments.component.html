@@ -1,0 +1,145 @@
+<div class="md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 mt-13 min-h-screen transition-all">
+    <div class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
+        <div class="flex-grow overflow-hidden h-full flex flex-col">
+            <div class="flex-grow flex overflow-x-hidden">
+
+                <div class="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
+                    <div *ngIf="selectedClient"
+                        class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+                        <div class="flex w-full items-center">
+                            <div class="flex items-center text-3xl text-gray-900 dark:text-white">
+                                <h2>{{ selectedClient?.firstName }} {{ selectedClient?.lastName }}'s Payments</h2>
+                            </div>
+                            <div class="ml-auto sm:flex hidden items-center justify-end">
+                                <div class="text-right">
+                                    <div class="text-xs text-gray-400 dark:text-gray-400">
+                                        Total Order:
+                                    </div>
+                                    <div class="text-gray-900 text-lg dark:text-white">
+
+                                        {{ totalOrderAmount }}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 sm:mt-7 mt-4">
+                            <a href="#"
+                                class="px-3 border-b-2 border-blue-500 text-blue-500 dark:text-white dark:border-white pb-1.5">Activities</a>
+                        </div>
+                    </div>
+                    <div *ngIf="!selectedClient"
+                        class="sm:p-7 p-4 flex flex-col items-center justify-center w-full h-full font-bold">
+                        <p class="text-black-400 ">Please select a client to view their orders.</p>
+                    </div>
+                    <div class="sm:p-7 p-4">
+                        <div class="flex w-full items-center mb-7">
+
+                            <select
+                                class="inline-flex mr-3 items-center h-8 pl-2.5 pr-2 rounded-md shadow text-gray-700 dark:text-gray-400 dark:border-gray-800 border border-gray-200 leading-none py-0"
+                                [(ngModel)]="sortBy" (change)="sortOrders()">
+                                <option value="name">Sort by Name</option>
+                                <option value="date">Sort by Date</option>
+                                <option value="status">Sort by Status</option>
+                                <option value="total">Sort by Total</option>
+                            </select>
+                        </div>
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="text-gray-400">
+                                    <th
+                                        class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
+                                        Name
+                                    </th>
+                                    <th
+                                        class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
+                                        Status
+                                    </th>
+                                    <th
+                                        class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
+                                        Amount
+                                    </th>
+                                    <th
+                                        class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
+                                        Date
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let order of paginate()" class="text-gray-600 dark:text-gray-100">
+                                <tr>
+                                    <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                        <div *ngFor="let detail of order.orderDetail">
+
+                                            {{ detail.serviceChargesName }}
+
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden text-blue-400">
+                                        {{ getStatusText(order.orderStatus)}}
+                                    </td>
+                                    <td
+                                        class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-400">
+                                        -$ {{ order.orderTotal }}
+                                    </td>
+                                    <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                        <div class="flex items-center">
+                                            <div class="sm:flex hidden flex-col">
+                                                <div class="text-gray-400 text-xs">
+                                                    {{ order.orderDate }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="selectedClient && orders.length === 0"
+                            class="sm:p-7 p-4 flex flex-col items-center justify-center w-full h-full">
+                            <p class="text-black font-bold">This client has no orders yet.</p>
+                        </div>
+                        <div class="flex w-full mt-5 space-x-2 justify-end">
+                            <button
+                                class="inline-flex items-center h-8 w-8 justify-center text-gray-400 rounded-md shadow border border-gray-200 dark:border-gray-800 leading-none"
+                                *ngFor="let page of getPagesArray()" (click)="changePage(page)">
+                                {{ page }}
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div
+                    class="xl:w-60 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5">
+                    <div class="text-15 tracking-wider text-blue-400">
+                        <strong>USERS</strong>
+                    </div>
+                    <div class="relative mt-2">
+                        <input type="text"
+                            class="pl-8 h-9 bg-transparent border border-gray-300 dark:border-gray-700 dark:text-white w-full rounded-md text-sm"
+                            placeholder="Search clients" [(ngModel)]="searchTerm" (input)="searchByName()" />
+                        <svg viewBox="0 0 24 24"
+                            class="w-4 absolute text-gray-400 top-1/2 transform translate-x-0.5 -translate-y-1/2 left-2"
+                            stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <div *ngFor="let client of clients; let i = index" class="space-y-4 mt-3">
+                        <button
+                            class="bg-white p-3 w-full flex flex-col rounded-md -gray-800 shadow focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            (click)="showPayment(client.clientId)">
+                            <div
+                                class="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
+                                <a>{{ client.firstName }} {{ client.lastName }}</a>
+                            </div>
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

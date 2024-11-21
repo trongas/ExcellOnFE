@@ -1,0 +1,78 @@
+<div class="md:w-[calc(100%-256px)] md:ml-64 bg-white min-h-screen transition-all p-8">
+  <div class="bg-gray-100 p-6 md:p-10 rounded-xl">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+        <a (click)="goBackToDepartment()">
+          <i class="fa fa-arrow-left font-bold " aria-hidden="true"><strong> Department</strong></i>
+        </a>
+        
+        <h2 class=""><br></h2>
+        <div *ngIf="departmentName" class="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
+          {{ departmentName }}
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="overflow-x-auto mb-8">
+      <table class="min-w-full border rounded-lg overflow-hidden">
+        <thead class="bg-gray-200">
+          <tr>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              AVATAR
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              FRIST Name
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              LAST Name
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              DOB
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              EMAIL
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              PHONE
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr *ngFor="let employee of employees" (click)="showDepartmentDetail(employee.id)">
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              <img src="{{employee.avatar}}" class="h-12 w-12 bg-white rounded-full border"
+                                        alt="..." />
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{ employee.firstName }}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{ employee.lastName }}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{ employee.dob }}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{ employee.email }}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+              {{ employee.phone }}
+            </td>
+            <app-department-details *ngIf="selectedEmployee" [employee]="selectedEmployee"
+              (close)="closeDepartmentDetail()"></app-department-details>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-center pt-3 font-bold text-large"  *ngIf="employees.length === 0">
+      <p>No employees found.</p>
+    </div>
+  </div>
+</div>

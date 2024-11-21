@@ -1,0 +1,31 @@
+.mat-mdc-table {
+  padding: 10px;
+}
+table {
+  border-collapse: none;
+}
+.mat-elevation-z8 {
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+.mat-mdc-form-field {
+  border: none !important;
+}
+.radius {
+  border-radius: 20px;
+}
+th {
+  color: #06283d;
+  font-weight: bold;
+  font-size: medium;
+  background-color: #e5e7eb !important;
+}
+/* .mat-mdc-table tbody, .mat-mdc-table thead, .mat-mdc-header-row{
+  border: 2px solid green;
+  border-radius: 20px;
+} */
+/* .mat-mdc-cell{
+  border: none !important;
+} */

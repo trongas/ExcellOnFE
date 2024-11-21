@@ -1,0 +1,61 @@
+<div class="hero-header bg-[url('/assets/images/servicesBg.png')] bg-cover">
+    <div class="container mx-auto py-5 lg:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-1">
+            <div class="col-span-full text-center">
+                <h1 class="text-4xl text-event">Payment History</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto py-5 px-10">
+    <div class="bg-white rounded-lg">
+        <div class="p-4 border-b">
+            <div class="flex items-center justify-end space-x-2 mr-10">
+                <div class="relative group">
+                    <button class="btn btn-default btn-xs dropdown-toggle" aria-haspopup="true"
+                        aria-expanded="false">Filter history <i class="fa fa-filter"></i></button>
+                    <ul
+                        class="dropdown-menu dropdown-menu-right absolute z-50 top-3 right-1 mt-2 hidden group-hover:block hover:bg-[#efefef]">
+                        <li><a href="#" class="w-48 block px-4 py-2 text-gray-800 hover:bg-gray-200">Approved orders</a>
+                        </li>
+                        <li><a href="#" class="w-48 block px-4 py-2 text-gray-800 hover:bg-gray-200">Pending orders</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 mx-36">
+            <div class="flex items-start mb-4 border-b pb-2" *ngFor="let order of orders">
+                <div class="">
+                    <img src="../../../../assets/images/payment.jpg" class="w-14 h-14 object-cover rounded-full" />
+                </div>
+                <div class="w-11/12 ml-7">
+                    <div class="flex items-center justify-between" *ngFor="let detail of order.orderDetail">
+                        <div>
+                            <label class="text-xl font-medium">{{ detail.serviceChargesName
+                                }} - {{detail.serviceChargesDescription.slice(0,
+                                20)}}{{detail.serviceChargesDescription.split(' ').length > 5 ? '...' : ''}}</label>
+                            <p>Price: {{ detail.price | currency }}</p>
+                        </div>
+                    </div>
+                    <p>Money paid: {{ order.orderTotal | currency}}</p>
+                    <div class="flex items-center">
+                        <a class=" rounded-full bg-green-200 pr-3"><i class="fas fa-check px-2"></i> {{
+                            getOrderStatus(order.orderStatus) }}</a>
+                    </div>
+                    <div>
+                        <p class="text-xs">Order made on:
+                            <time>{{ order.orderDate | date }}</time>
+                            by
+                            <a href="#">{{ user.firstName }} {{user.lastName}}</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

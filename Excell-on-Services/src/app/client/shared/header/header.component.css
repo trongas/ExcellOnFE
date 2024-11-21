@@ -1,0 +1,29 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+a {
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+}
+
+
+.active {
+  position: relative;
+  color: #06346d;
+  padding-bottom: 10px;
+}
+.active:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  display: inline-block;
+  width: 5px;
+  border-bottom: #06346d solid 4px;
+  border-radius: 70px;
+}

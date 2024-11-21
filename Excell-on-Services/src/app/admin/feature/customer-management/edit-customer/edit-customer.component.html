@@ -1,0 +1,62 @@
+<div mat-dialog-title>
+    <h2>Update Customer</h2>
+</div>
+<hr class="pb-3">
+<div class="center">
+    <form [formGroup]="updateForm">
+        <div mat-dialog-content class="content">
+            <div class="row flex">
+                <div class="w-72 mx-1">
+                    <div class="inputbox">
+                        <input formControlName="firstName" placeholder=" " type="text" required="required">
+                        <span>First Name</span>
+                    </div>
+                </div>
+                <div class="w-72 mx-1">
+                    <div class="inputbox">
+                        <input formControlName="lastName" placeholder=" " type="text" required="required">
+                        <span>Last Name</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex mt-5">
+                <div class="w-72 mx-1">
+                    <div class="inputbox">
+                        <input formControlName="phone" placeholder=" " type="text" required="required">
+                        <span>Phone</span>
+                        <div *ngIf="updateForm.get('phone')?.errors && updateForm.get('phone')?.touched"
+                            class="text-red-500 text-xs mt-1">Invalid phone number format.</div>
+                    </div>
+                </div>
+                <div class="w-72 mx-1">
+                    <div class="inputbox">
+                        <input formControlName="email" placeholder=" " type="text" required="required">
+                        <span>Email</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-72 mx-1 mt-5">
+                <div class="inputbox">
+                    <input formControlName="dob" placeholder=" " type="date" required="required">
+                    <span>Dob</span>
+                    <div *ngIf="updateForm.get('dob')?.errors && updateForm.get('dob')?.touched"
+                        class="text-red-500 text-xs mt-1">You must be 18 years or older.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div mat-dialog-actions class="action">
+            <button
+                class="ml-5 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-400 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                type="button" [mat-dialog-close]="false">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">Cancel</span>
+            </button>
+            <button
+                class="ml-2 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-blue-300 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-200/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                type="button" (click)="onFormSubmit()">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">Update</span>
+            </button>
+        </div>
+    </form>
+</div>

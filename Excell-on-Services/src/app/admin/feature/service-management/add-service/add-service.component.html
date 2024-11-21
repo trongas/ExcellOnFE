@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add Service</h1>
+<div mat-dialog-content>
+
+    <div class="center">
+        <div class="">
+            <div class="inputbox">
+                <input [(ngModel)]="newService.serviceName" placeholder=" " required="required">
+                <span>Service Name</span>
+            </div>
+        </div>
+        <div class="">
+            <div class="inputbox">
+                <textarea rows="5" [(ngModel)]="newService.description" placeholder=" " type="text"
+                    required="required"></textarea>
+                <span>Description</span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()"
+        class="ml-10 mt-5 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-400 text-white shadow-md shadow-blue-200/20 hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+        Cancel</button>
+    <button mat-button color="primary" (click)="onSave()"
+        class="ml-2 mt-5 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-blue-300 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-200/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+        Save</button>
+</div>

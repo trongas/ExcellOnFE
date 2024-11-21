@@ -1,0 +1,28 @@
+<div>
+    <div class="center">
+        <div class="grid grid-cols-12">
+            <div class="col-span-6">
+                <div class="inputbox">
+                    <input [(ngModel)]="newService.serviceChargesName" placeholder=" " required="required">
+                    <span>Service Name</span>
+                </div>
+            </div>
+            <div class="col-span-6">
+                <div class="inputbox">
+                    <input [(ngModel)]="newService.price" placeholder=" " required="required">
+                    <span>Price</span>
+                </div>
+            </div>
+        </div>
+        <div class="mx-1">
+            <div class="inputbox">
+                <textarea rows="6" [(ngModel)]="newService.serviceChargesDescription" placeholder=" " type="text"
+                    required="required"></textarea>
+                <span>Description</span>
+            </div>
+        </div>
+        <button mat-button color="primary" (click)="onSave()"
+            class="mt-36 ml-2 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-20 min-w-[130px] h-10 max-h-[40px] rounded-lg text-xs bg-blue-300 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-200/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+            Save</button>
+    </div>
+</div>

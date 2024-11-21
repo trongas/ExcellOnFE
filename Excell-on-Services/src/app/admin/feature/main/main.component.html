@@ -1,0 +1,146 @@
+<main class=" md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 mt-19 min-h-screen transition-all">
+    <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-6">
+
+            <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                <div class="flex justify-between mb-4">
+                    <div>
+                        <div class="flex items-center mb-1">
+                            <div class="text-2xl font-semibold">{{totalEmployees}}</div>
+                            <!-- <div
+                                class="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
+                                +20%</div> -->
+                        </div>
+                        <div class="text-sm font-medium text-gray-400">Employee</div>
+                    </div>
+
+                </div>
+                <div class="flex items-center">
+                    <img src="../../../../assets/images/Customer6.jpg" alt=""
+                        class="w-8 h-8 rounded-full object-cover block">
+                    <img src="../../../../assets/images/Customer7.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                    <img src="../../../../assets/images/Customer8.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                    <img src="../../../../assets/images/Customer9.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                    <img src="../../../../assets/images/Customer10.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                </div>
+            </div>
+            <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                <div class="flex justify-between mb-4">
+                    <div>
+                        <div class="flex items-center mb-1">
+                            <div class="text-2xl font-semibold">{{totalClients}}</div>
+                            <!-- <div
+                                class="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
+                                +30%</div> -->
+                        </div>
+                        <div class="text-sm font-medium text-gray-400">Visitors</div>
+                    </div>
+
+                </div>
+                <div class="flex items-center">
+                    <img src="../../../../assets/images/Customer1.jpg" alt=""
+                        class="w-8 h-8 rounded-full object-cover block">
+                    <img src="../../../../assets/images/Customer2.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                    <img src="../../../../assets/images/Customer3.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                    <img src="../../../../assets/images/Customer4.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                    <img src="../../../../assets/images/Customer5.jpg"
+                        class="w-8 h-8 rounded-full object-cover block -ml-3">
+                </div>
+            </div>
+            <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                <div class="flex justify-between mb-6">
+                    <div>
+                        <div class="text-2xl font-semibold mb-1"><span
+                                class="text-base font-normal text-gray-400 align-top"></span>{{ totalDepartments }}</div>
+                        <div class="text-sm font-medium text-gray-400">Departments</div>
+                    </div>
+                 
+                </div>
+                <a  [routerLink]="['/admin/department']" class="text-blue-500 font-medium text-sm hover:text-blue-600">View Departments</a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md lg:col-span-2">
+                <div class="flex justify-between mb-4 items-start">
+                    <div class="font-medium">Order Statistics</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <div class="rounded-md border border-dashed border-gray-200 p-4">
+                        <div class="flex items-center mb-0.5">
+                            <div class="text-xl font-semibold">10</div>
+                            <span
+                                class="p-1 rounded text-[12px] font-semibold bg-blue-500/10 text-blue-500 leading-none ml-1">$80</span>
+                        </div>
+                        <span class="text-gray-400 text-sm">Active</span>
+                    </div>
+                    <div class="rounded-md border border-dashed border-gray-200 p-4">
+                        <div class="flex items-center mb-0.5">
+                            <div class="text-xl font-semibold">50</div>
+                            <span
+                                class="p-1 rounded text-[12px] font-semibold bg-emerald-500/10 text-emerald-500 leading-none ml-1">+$469</span>
+                        </div>
+                        <span class="text-gray-400 text-sm">Completed</span>
+                    </div>
+                    <div class="rounded-md border border-dashed border-gray-200 p-4">
+                        <div class="flex items-center mb-0.5">
+                            <div class="text-xl font-semibold">4</div>
+                            <span
+                                class="p-1 rounded text-[12px] font-semibold bg-rose-500/10 text-rose-500 leading-none ml-1">-$130</span>
+                        </div>
+                        <span class="text-gray-400 text-sm">Canceled</span>
+                    </div>
+                </div>
+                <div>
+                    <canvas id="order-chart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+                <div class="flex justify-between mb-4 items-start">
+                    <div class="font-medium">Services</div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[460px]">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tl-md rounded-bl-md">
+                                    Name</th>
+                                <th
+                                    class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left">
+                                    Description</th>
+                                <th
+                                    class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tr-md rounded-br-md">
+                                    Total Day</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let service of services">
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <div class="flex items-center">
+                                        {{service.serviceName}}
+                                    </div>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-emerald-500">{{service.description}}</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span
+                                        class="inline-block p-1 rounded bg-emerald-500/10 text-emerald-500 font-medium text-[12px] leading-none">{{service.totalDay}}</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

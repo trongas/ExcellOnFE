@@ -1,0 +1,84 @@
+/* can be configured in tailwind.config.js */
+.group:hover .group-hover\:block {
+  display: block;
+}
+.hover\:w-60 {
+  width: 26%;
+}
+.hover\:w-60:hover {
+  width: 30%;
+}
+.button-send{
+  margin-left: -96px;
+  z-index: 1000;
+}
+/* NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #969696;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #edeef0;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #969696;
+}
+::-webkit-scrollbar-track {
+  background: #d7d7d7;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #969696;
+}
+::-webkit-scrollbar-track:active {
+  background: #969696;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.chat-body {
+  flex: 1; /* Sử dụng flex để đảm bảo chiếm phần còn lại của màn hình */
+  overflow-y: auto; /* Sử dụng cuộn dọc khi nội dung vượt quá kích thước */
+  max-height: calc(
+    100vh - 100px - 100px
+  ); /* Đảm bảo chiều cao của chat body không vượt quá chiều cao của màn hình trừ đi chiều cao của header và footer */
+}
+
+.message {
+  margin-bottom: 10px; /* Khoảng cách giữa các tin nhắn */
+  color: black;
+}
+
+.message-content {
+  padding: 10px; /* Khoảng cách nội dung của tin nhắn từ các cạnh */
+}
+
+.message-right {
+  border-radius: 20px;
+  text-align: left;
+  padding: 0 10px 0 10px;
+  background-color: #7eabf4;
+  width: fit-content;
+  max-width: 45%;
+  margin-left: auto;
+  color: white;
+}
+
+.message-left {
+  border-radius: 20px;
+  padding: 0 10px 0 10px;
+  text-align: left;
+  background-color: #dae5fb;
+  width: fit-content;
+  max-width: 45%;
+}

@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+
+/* @import '~remixicon/fonts/remixicon.css'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~remixicon/fonts/remixicon.css";
+@import "~ngx-toastr/toastr";
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5,h6,li,p,span,strong,a {
+  font-family: "Rubik", sans-serif;
+}
+.toast-success {
+  background-color: rgb(240 253 244);
+  border: 1px solid #65b741;
+}
+.toast-success .toast-title {
+  font-size: large;
+  color: #1A5D1A;
+}
+.toast-success .toast-message {
+  color: #1A5D1A;
+}
+.toast-error {
+  background-color: rgb(254 226 226);
+  border: 1px solid #D80032;
+}
+.toast-error .toast-title {
+  font-size: larger;
+  color: #dc2626;
+}
+.toast-error .toast-message {
+  color: #dc2626;
+}
+
+#toast-container > .toast-success {
+  background-image: url("./assets/images/check-circle-svgrepo-com.svg") !important;
+}
+#toast-container > .toast-error {
+  background-image: url("./assets/images/close-circle-svgrepo-com.svg") !important;
+}
+.toast-success .toast-progress {
+  background-color: green;
+  ;
+}
+.toast-error .toast-progress {
+  background-color: red;
+  ;
+}
+.toast-error .toast-close-button {
+  font-size: large;
+  color: red;
+  text-shadow: 0 1px 0 red;
+}
+.toast-success .toast-close-button {
+  font-size: large;
+  color: green;
+  text-shadow: 0 1px 0 green;
+}

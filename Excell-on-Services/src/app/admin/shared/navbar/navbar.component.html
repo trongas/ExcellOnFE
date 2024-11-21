@@ -1,0 +1,50 @@
+<!-- Navbar -->
+<nav
+    class="pl-[260px] top-0 left-0 w-full z-10 bg-white border border-b-1 md:flex md:justify-start flex items-center p-4">
+    <div class="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
+        <!-- Hamburger button for small screens -->
+        <button type="button" class="text-lg text-black-600 sm:hidden" (click)="toggleSidebar()">
+        </button>
+        <!-- Brand -->
+        <a class="text-blueGray-300 text-sm uppercase hidden lg:inline-block font-semibold">{{ pageTitleFromRoute }}</a>
+
+        <!-- User -->
+        <ul class="flex-col md:flex-row list-none items-center hidden md:flex ml-auto">
+            <li *ngIf="isLoggedOut; else loggedIn">
+                <a class="profile" routerLink="/auth/adminLogin">
+                    Login
+                </a>
+            </li>
+            <ng-template #loggedIn>
+                <!-- Container chứa cả nút icon chuông và avatar -->
+                <div class="flex items-center ml-4 relative">
+                    <!-- Nút icon chuông -->
+                    <a class="notification-icon relative mr-4" (click)="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span *ngIf="unreadNotificationsCount > 0" class="notification-count">{{
+                            unreadNotificationsCount }}</span>
+                    </a>
+                    <div *ngIf="showNotificationDropdown" class="notification-dropdown"  (scroll)="onScroll()">
+                        <ul>
+                            <li *ngFor="let notification of notifications.slice(0, visibleNotificationsCount); let i = index">
+                                <span (click)="handleNotificationClick(i)" class="p-3">
+                                    {{ notification.message }}
+                                </span>
+                                
+                                <button *ngIf="notification.clicked" class="text-red-500 pl-2" (click)="deleteNotification(i)">Xóa</button>
+                                <hr class="m-3">
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Avatar -->
+                    <div class="relative group">
+                        <a class="profile cursor-pointer" [routerLink]="['admin/profile-admin']">
+                            <img class="w-8 h-8 rounded-circle" src="{{ loggedInUser?.avatar }}" alt="Avatar">
+                        </a>
+                        <!-- Dropdown menu -->
+                    </div>
+                </div>
+            </ng-template>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,381 @@
+<div class="w-full">
+    <section class="py-0 text-center " id="home">
+        <div class=" grid justify-items-center ">
+            <div class="lg:hidden block relative bg-sm pt-16">
+                <div class="flex">
+                    <div class="order-2 lg:order-none text-left lg:text-left px-10 mt-10">
+                        <h1 class="mb-3 text-5xl font-bold leading-tight">Excell-on Consulting Services (ECS)
+                        </h1>
+                        <p class="mx-1 text-3xl">Helps organizations develop innovative business and solutions <br
+                                class="d-none lg:d-block" />focused on defining, and optimizing clients.</p>
+                        <p
+                            class="font-medium text-center my-5 text-[#303c60] bg-[#93c5fd] rounded-full mx-20 p-3 hover:bg-[#4476bd] hover:text-white">
+                            <a class="btn btn-lg  " routerLink="/user/about" role="button">Read more</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="hidden lg:flex lg:relative bg-holder pt-16">
+                <div class="flex ">
+                    <div class="order-2 order-none text-left text-left pl-14 mt-10">
+
+                        <h1 class="mb-3 text-5xl font-bold leading-tight">Excell-on Consulting Services (ECS)
+                        </h1>
+                        <p class="mx-1 text-3xl">Helps organizations develop innovative business and solutions <br
+                                class="d-none lg:d-block" />focused on defining, and optimizing clients.</p>
+                        <div class="flex grid grid-cols-12 pr-16 mt-5 space-x-8">
+                            <button routerLink="/user/about"
+                                class="col-span-5 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-sky-500 hover:to-sky-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                                Read more
+                            </button>
+                            <button routerLink="/user/services"
+                                class="col-span-6 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-sky-500 hover:to-sky-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                                Services
+                            </button>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-none text-center md:text-right">
+                        <img class="img-fluid img-hero" src="../../../assets/images/services.png" width="500" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="pt-0" id="features">
+        <div class="bg-[url('/assets/images/bgr1.png')] bg-no-repeat bg-cover">
+            <div class="flex flex-row items-center">
+                <div
+                    class="basis-1/3 order-1 md:order-none text-center md:text-left md:mx-3 hidden sm:hidden md:hidden lg:block">
+                    <img class="img-fluid" src="../../../assets/images/banner.png" width="900" alt="" />
+                </div>
+                <div class="basis-2/3 order-2 md:order-none pl-3 pr-5 md:mx-8">
+                    <ng-container *ngIf="service">
+                        <h3 class="text-center uppercase text-xl md:text-4xl font-bold leading-loose text-event">
+                            Services
+                        </h3>
+                        <p class="my-4 text-xl">
+                            Excel-on the various services that they offer to their clients, so as to meet the
+                            requirements of organizations
+                        </p>
+                        <div class="flex flex-row items-center mb-5" *ngFor="let item of service; let i = index">
+                            <div class="basis-1/6">
+                                <div class="special-services-image flex items-center" [ngClass]="getBackgroundClass(i)">
+                                    <img [src]="imageService[i].imageSrc" [alt]="imageService[i].altText"
+                                        class="img-fluid mx-auto" />
+                                </div>
+                            </div>
+                            <div class="px-4 basis-2/3">
+                                <h5 class="font-bold text-xl " [style.color]="getColor(i)">{{ item.serviceName }}</h5>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-solution d-md-none d-none d-lg-block">
+        <div class="">
+            <div class="section-title text-center">
+                <h2>Why Should You Work With Us?</h2>
+            </div>
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
+                    <div class="solution-wrapper mb-10">
+                        <div class="solution-title center">
+                            <h4>
+                                <span>01.</span>
+                                Business Solution
+                            </h4>
+                            <p>Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum, imperdiet
+                                eget odio ac, faucibus ultricies nisl.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-4">
+                            <div class="solution-wrapper mb-20 mt-5">
+                                <div class="solution-title left">
+                                    <h4>
+                                        <span>06.</span>
+                                        Strategy
+                                    </h4>
+                                    <p>Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum,
+                                        imperdiet eget odio ac, faucibus ultricies nisl.</p>
+                                </div>
+                            </div>
+                            <div class="solution-wrapper">
+                                <div class="solution-title left">
+                                    <h4>
+                                        <span>05.</span>
+                                        Consultancy
+                                    </h4>
+                                    <p>Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum,
+                                        imperdiet eget odio ac, faucibus ultricies nisl.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-4 flex justify-center">
+                            <img src="../../../../assets/images/work.png" alt="mask"
+                                class="xl:w-80 2xl:w-96 2xl:mb-10" />
+                        </div>
+                        <div class="col-span-4">
+                            <div class="solution-wrapper mb-20 mt-5">
+                                <div class="solution-title right">
+                                    <h4>
+                                        <span>02.</span>
+                                        Organization
+                                    </h4>
+                                    <p>Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum,
+                                        imperdiet eget odio ac, faucibus ultricies nisl.</p>
+                                </div>
+                            </div>
+                            <div class="solution-wrapper">
+                                <div class="solution-title right">
+                                    <h4>
+                                        <span>03.</span>
+                                        Business Idea
+                                    </h4>
+                                    <p>Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum,
+                                        imperdiet eget odio ac, faucibus ultricies nisl.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12">
+                    <div class="solution-wrapper mt-10" data-aos-delay="600">
+                        <div class="solution-title center">
+                            <h4>
+                                <span>04.</span>
+                                Improvments
+                            </h4>
+                            <p>Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum, imperdiet
+                                eget odio ac, faucibus ultricies nisl.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="our-work-process">
+        <div class="">
+            <div class="section-title text-center">
+                <h2>Our Work Process</h2>
+            </div>
+            <div class="grid grid-cols-12 mt-3">
+                <div class="col-span-4">
+                    <div class="process-item">
+                        <div class="around-dotted dashed01">
+                            <div class="image" style="background-color: #7353ff;">
+                                <img src="../../../../assets/images/process01.svg" alt="Work Process"
+                                    class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="process-text">
+                            <h3 class="mb-20">Discuss</h3>
+                            <p>
+                                Donec metus lorem, vulputate at
+                                sapien sit amet, auctor iaculis lorem. In
+                                vel hendrerit nisi Vesiulum ege.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-4">
+                    <div class="process-item">
+                        <div class="around-dotted dashed02">
+                            <div class="image" style="background-color: #29c6ff;">
+                                <img src="../../../../assets/images/process02.svg" alt="Work Process"
+                                    class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="process-text">
+                            <h3 class="mb-20">Mapping</h3>
+                            <p>
+                                Donec metus lorem, vulputate at
+                                sapien sit amet, auctor iaculis lorem. In
+                                vel hendrerit nisi Vesiulum ege.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-4">
+                    <div class="process-item">
+                        <div class="around-dotted dashed03">
+                            <div class="image" style="background-color: #63be52;">
+                                <img src="../../../../assets/images/process03.svg" alt="Work Process"
+                                    class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="process-text">
+                            <h3 class="mb-20">Discuss</h3>
+                            <p>
+                                Donec metus lorem, vulputate at
+                                sapien sit amet, auctor iaculis lorem. In
+                                vel hendrerit nisi Vesiulum ege.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="testimonial-area trust-us">
+        <div class="grid grid-cols-12">
+            <div class="col-span-4 section-title text-center mb-50">
+                <h2 class="">
+                    Refer to our services
+                </h2>
+                <div class="order-first md:order-none mr-2 text-center md:text-start"><img
+                        class="w-full md:mb-4 hidden sm:hidden md:block lg:block" src="../../../assets/images/about.jpg"
+                        alt="" />
+                </div>
+            </div>
+            <div class="col-span-8 testimonial-wrapper mx-5">
+                <div class="testimonial-slider">
+                    <swiper-container class="mySwiper" space-between="30" loop="true" slides-per-view="3">
+                        <ng-container *ngFor="let item of service; let i = index">
+                            <swiper-slide>
+                                <div class="py-6 px-2" routerLink="/user/services">
+                                    <article class="card">
+                                        <img class="card__background" [src]="imageSlide[i].imageSrc" [alt]="imageSlide[i].altText"
+                                            width="1920" height="2193" />
+                                        <div class="card__content | flow">
+                                            <div class="card__content--container | flow">
+                                                <h2 class="card__title">{{ item.serviceName }}</h2>
+                                                <p class="card__description">
+                                                    {{ item.description }}
+                                                </p>
+                                            </div>
+                                            <button routerLink="/user/services" class="card__button">Read more</button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </swiper-slide>
+                        </ng-container>
+                    </swiper-container>
+                </div>
+                <div class="slider-arrows mt-6">
+                    <div class="prev-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19.364" height="14.091"
+                            viewBox="0 0 25.364 14.091">
+                            <path id="Path"
+                                d="M8.042,13.678a1.409,1.409,0,0,1-1.993,0L.414,8.043h0a1.408,1.408,0,0,1,0-1.993h0L6.049.413A1.409,1.409,0,0,1,8.042,2.405L4.811,5.636H23.955a1.409,1.409,0,1,1,0,2.818H4.811l3.231,3.231A1.409,1.409,0,0,1,8.042,13.678Z"
+                                fill="#fff" />
+                        </svg>
+                    </div>
+                    <div class="next-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19.364" height="14.091"
+                            viewBox="0 0 25.364 14.091">
+                            <path id="Path_two"
+                                d="M17.322,13.678a1.409,1.409,0,0,0,1.993,0L24.95,8.043h0a1.408,1.408,0,0,0,0-1.993h0L19.315.413a1.409,1.409,0,1,0-1.993,1.993l3.231,3.231H1.409a1.409,1.409,0,1,0,0,2.818H20.553l-3.231,3.231A1.409,1.409,0,0,0,17.322,13.678Z"
+                                fill="#fff" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="mx-14 hidden md:block">
+        <h2 class="sm:text-3xl text-3xl font-medium title-font mb-4 text-gray-900 font-bold text-center">
+            Customers to cooperate with Excell-on Consulting Services
+        </h2>
+        <swiper-container class="mySwiper" space-between="0" loop="true" centered-slides="true" autoplay-delay="1000"
+            autoplay-disable-on-interaction="false" slides-per-view="6">
+            <swiper-slide *ngFor="let customer of customers">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="flex flex-col items-center text-center rounded p-4">
+                        <div class="flex-shrink-0 grayscale w-24">
+                            <img class="" [src]="customer.imageSrc" alt="{{ customer.altText }}">
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    </section>
+
+    <section class=" relative bg-[url('/assets/images/ultimatebg.png')] bg-no-repeat bg-cover">
+        <div class="px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-20">
+                <h1 class="sm:text-3xl text-3xl font-medium title-font mb-4 text-gray-900 font-bold ...">Contact Us</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please leave us a message and we will get back to
+                    you as soon as possible!</p>
+            </div>
+            <form action="">
+                <div class="lg:w-2/3 md:w-3/4 mx-auto space-y-8">
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="block space-y-2">
+                            <span class="text-gray-700 font-medium ...">Name</span>
+                            <input type="text" class="mt-1 block w-full h-12 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                            invalid:border-pink-500 invalid:text-pink-600
+                      focus:invalid:border-pink-500 focus:invalid:ring-pink-500" placeholder="Name" />
+                        </label>
+                        <label class="block space-y-2">
+                            <span class="text-gray-700 font-medium ...">Phone</span>
+                            <input type="text"
+                                class="mt-1 block w-full h-12 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                                placeholder="+099099090" />
+                        </label>
+                    </div>
+                    <label class="block space-y-2">
+                        <span class="text-gray-700 font-medium ...">Email</span>
+                        <input type="email"
+                            class="mt-1 block w-full h-12 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                            placeholder="john@example.com" />
+                    </label>
+                    <fieldset class="">
+                        <legend class="font-medium ...">Choice Services:</legend>
+                        <input id="In-bound" class="peer/in mx-1" type="radio" name="status" checked />
+                        <label for="In-bound" class="peer-checked/in:text-sky-500 mr-24 text-xl">In-bound</label>
+
+                        <input id="Out-bound" class="peer/out mx-1" type="radio" name="status" />
+                        <label for="Out-bound" class="peer-checked/out:text-sky-500 mr-24 text-xl">Out-bound</label>
+
+                        <input id="TeleMarketing" class="peer/tele mx-1" type="radio" name="status" />
+                        <label for="TeleMarketing" class="peer-checked/tele:text-sky-500 mr-24 text-xl">Tele
+                            Marketing</label>
+                    </fieldset>
+                    <label class="block space-y-2">
+                        <span class="text-gray-700 font-medium ...">Message</span>
+                        <textarea
+                            class=" resize-none mt-1 block w-full h-32 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                            rows="3" placeholder="Enter some long form content."></textarea>
+                    </label>
+                    <div class="grid grid-cols-12">
+                        <button
+                            class="col-span-4 rounded-full flex items-center bg-blue-400 text-white gap-1 px-20 py-2 cursor-pointer text-gray-800 font-semibold tracking-widest hover:bg-blue-400 duration-300 hover:gap-2 hover:translate-x-3">
+                            Send
+                            <svg class="w-5 h-5" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                                    stroke-linejoin="round" stroke-linecap="round"></path>
+                            </svg>
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+  
+</div>

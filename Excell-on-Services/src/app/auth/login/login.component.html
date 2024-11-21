@@ -1,0 +1,106 @@
+<div class="mx-auto min-h-[100vh] bg-[url('/assets/images/bgr2.png')] bg-cover bg-no-repeat">
+    <div class="flex justify-center mx-auto min-h-[100vh] bg-[url('/assets/images/bgr3.png')] bg-cover bg-no-repeat">
+        <form (submit)="submit()" [formGroup]="loginForm">
+            <div
+                class="md:flex justify-center mx-auto w-2/3 my-20 rounded-[25px] min-h-[400px] bg-[url('/assets/images/servicesBg.png')] bg-cover bg-no-repeat">
+                <div class="grid grid-cols-12 leading-loose">
+                    <a routerLink="/user/home"
+                        class="md:hidden block flex justify-end ml-10 my-2 text-2xl text-[#4476bd]"><i
+                            class="fa-solid fa-house"></i></a>
+                    <div class="col-span-7 p-4 mx-auto">
+                        <h1 class="text-3xl text-center">Login</h1>
+                        <p class="text-gray-500">Sign In to your account</p>
+                        <div class="login-form">
+
+                            <!-- Email -->
+                            <div class="mb-3 form-group">
+                                <div class="flex items-center border-b border-blue-200 py-2">
+                                    <span class="mr-3"><i class="fas fa-user"></i></span>
+                                    <input type="text" id="username"
+                                        class="form-control appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                                        placeholder="Enter email" formControlName="email">
+                                </div>
+                                <div *ngIf="loginForm.get('email')!.hasError('required') && loginForm.get('email')!.touched"
+                                    class="text-red-500 mt-2">Email is required</div>
+                                <div *ngIf="loginForm.get('email')!.hasError('email') && loginForm.get('email')!.touched"
+                                    class="text-red-500 mt-2">Invalid email format</div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-4 form-group">
+                                <div class="flex items-center border-b border-blue-200 py-2">
+                                    <span class="mr-3"><i class="fas fa-lock"></i></span>
+                                    <input type="{{ showPassword ? 'text' : 'password' }}" id="password"
+                                        class="form-control appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                                        placeholder="Password" formControlName="password">
+                                    <button type="button" (click)="togglePasswordVisibility()" class="">
+                                        <i [ngClass]="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"></i>
+                                    </button>
+                                </div>
+                                <div *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.touched"
+                                    class="text-red-500 mt-2">Password is required</div>
+                                <div *ngIf="loginForm.get('password')!.hasError('invalidPassword') && loginForm.get('password')!.touched"
+                                    class="text-red-500 mt-2">Password must contain at least one lowercase letter, one
+                                    uppercase letter, one digit, and one special character.
+                                </div>
+                            </div>
+
+
+                            <div class="text-center">
+                                <div class="spinner-border" role="status" *ngIf="loading$ | async">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <button type="submit" [disabled]="loading$ | async"
+                                    class="bg-blue-500 text-white rounded-full text-center mr-2 hover:cursor-pointer">
+                                    <p class="px-20 pt-2">Login</p>
+                                </button>
+                            </div>
+                            <div class="col-span-6 border border-blue-50 text-right">
+                                <button type="button" (click)="showForgotPasswordInput()">
+                                    Forgot password?
+                                </button>
+                                <div *ngIf="showForgotPassword" class="forgot-password-input">
+                                    <button type="button" (click)="sendForgotPasswordEmail()"><i
+                                            class="fa-solid fa-envelope-circle-check fa-bounce"></i>
+                                        <p class="mx-1 font-medium">Send OTP</p>
+                                    </button>
+                                </div>
+                                <div *ngIf="showOTPComponent" class="otp-input">
+                                    <input type="text" name="otp" id="otp" #otpInput
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                        placeholder="Enter OTP..." required>
+                                    <button type="button" (click)="verifyOTP()"
+                                        class="relative rounded-full inline-flex items-center justify-center p-0.5 mb-2 mt-1 me-2 overflow-hidden text-sm font-medium text-gray-900 group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                        <span
+                                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Verify OTP
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:block col-span-5 pt-4 bg-[#cfdcfb] rounded-r-[25px]">
+                        <a routerLink="/user/home" class="flex justify-end mr-5 text-2xl text-[#4476bd]"><i
+                                class="fa-solid fa-house"></i></a>
+                        <div class="text-center pt-16 grid grid-cols-12">
+                            <h2 class="col-span-12 text-3xl">Sign up</h2>
+                            <p class="col-span-12">If you don't have an account, please register for a new account
+                                here.</p>
+                            <button routerLink="/auth/register" type="button"
+                                class="col-span-12 bg-blue-500 text-white mx-16 py-2 rounded-full text-center">Register
+                                Now!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

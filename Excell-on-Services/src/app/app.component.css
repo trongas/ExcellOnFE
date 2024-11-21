@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5,h6,li,p,span,strong,a {
+  font-family: "Rubik", sans-serif;
+}
+::ng-deep ::ng-scrollbar-thumb {
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+::ng-deep ::ng-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}

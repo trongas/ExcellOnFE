@@ -1,0 +1,22 @@
+<ng-container *ngIf="!isLoginPage() && !is404Page()">
+  <ng-container *ngIf="isAdminPage()">
+    <app-sidebar></app-sidebar>
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-container *ngIf="!isAdminPage()">
+    <app-header></app-header>
+    <router-outlet>
+      <app-chat-box class="z-50 fixed bottom-20 right-9"></app-chat-box>
+    </router-outlet>
+    <app-footer></app-footer>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="isLoginPage()">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-container *ngIf="is404Page()">
+  <router-outlet></router-outlet>
+</ng-container>

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.text-event {
+  position: relative;
+  color: #0d3051;
+  padding-bottom: 25px;
+  margin-top: 50px;
+}
+.text-event:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  width: 140px;
+  border-bottom: #2884da solid 4px;
+  border-radius: 50px;
+}

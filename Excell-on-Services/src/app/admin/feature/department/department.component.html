@@ -1,0 +1,67 @@
+<!-- department-list.component.html -->
+
+<div class="md:w-[calc(100%-256px)] md:ml-64 bg-white min-h-screen transition-all p-8">
+  <div class="bg-gray-100 p-10 rounded-xl">
+    <div class="bg-gray-100 p-6 md:p-10 rounded-xl">
+      <div class="flex flex-wrap items-center pr-4">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h1 class="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
+            <strong>List Room</strong>
+          </h1>
+        </div>
+        <button
+          class=" bg-blue-400 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+          type="button" (click)="createDepartment()">
+          Create Department
+        </button>
+      </div>
+      <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-5">
+        <div *ngFor="let department of paginate(); let i = index" class="p-4 rounded-xl shadow-md layer1 relative bg-white">
+          <h2 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 font-bold">
+            <strong (click)="viewRoomDepartment(department.id)">
+              <a [routerLink]="['room-department', department.id]">{{ department.departmentName }}
+              </a>
+            </strong>
+          </h2>
+
+          <p class="text-gray-700">{{ department.departmentDescription }}</p>
+
+          <div class="absolute top-0 right-0 mt-2">
+            <div class="relative group">
+              <button class="bg-transparent border-none group-hover:bg-gray-200 rounded-md p-2 focus:outline-none">
+                <i class="fa fa-ellipsis-v"></i>
+              </button>
+              <!-- Modified dropdown menu -->
+              <ul class="hidden bg-white border rounded-md shadow-md right-0 group-hover:block absolute">
+                <li>
+                  <!-- Adjusted click handler to invoke the 'Add' action -->
+                  <div href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    (click)="editDepartment(department)">
+                    Edit
+                  </div>
+                </li>
+                <li>
+                  <!-- Adjusted click handler to invoke the 'Delete' action -->
+                  <div href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    (click)="deleteDepartment(department)">
+                    Delete
+                  </div>
+                </li>
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="flex justify-center items-center w-full mt-5 space-x-2 justify-end">
+      <button class="inline-flex items-center h-8 w-8 justify-center text-gray-400 rounded-md shadow border border-gray-200 dark:border-gray-800 leading-none"
+          *ngFor="let page of getPagesArray()" (click)="changePage(page)">
+          {{ page }}
+      </button>
+  </div>
+  </div>
+</div>

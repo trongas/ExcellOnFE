@@ -1,0 +1,46 @@
+<div mat-dialog-title>
+    <h2 class="font-bold">Update Service Charge</h2>
+</div>
+<hr class="pb-3">
+<div class="center">
+    <form [formGroup]="updateForm">
+        <div mat-dialog-content class="content">
+            <div class="row flex">
+                <div class="w-72 mx-1">
+                    <div class="inputbox">
+                        <input formControlName="serviceChargesName" placeholder=" " type="text" required="required">
+                        <span>Service Charge Name</span>
+                    </div>
+                </div>
+                <div class="w-72 mx-1">
+                    <div class="inputbox">
+                        <input formControlName="price" placeholder=" " type="text" required="required">
+                        <span>Price</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-5">
+                <div class="inputbox">
+                    <textarea rows="4" formControlName="serviceChargesDescription" placeholder=" " type="text"
+                        required="required"></textarea>
+                    <span>Description</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div mat-dialog-actions class="action">
+            <button
+                class="ml-5 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-gray-400 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                type="button" [mat-dialog-close]="false">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">Cancel</span>
+            </button>
+            <button
+                class="ml-2 relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 min-w-[180px] h-10 max-h-[40px] rounded-lg text-xs bg-blue-300 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-200/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                type="button" (click)="onFormSubmit()">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">Update</span>
+            </button>
+        </div>
+    </form>
+</div>

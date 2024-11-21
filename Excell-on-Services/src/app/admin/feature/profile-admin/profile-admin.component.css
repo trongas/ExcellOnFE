@@ -1,0 +1,24 @@
+.rounded-circle {
+    border-radius: 50%;
+    width: 200px; /* Thay đổi kích thước theo nhu cầu của bạn */
+    height: 200px; /* Thay đổi kích thước theo nhu cầu của bạn */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo khi đặt kích thước */
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Một lớp overlay mờ trắng */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Đảm bảo overlay nằm trên cùng */
+  }
+  
+  /* Cố định spinner giữa overlay */
+  .spinner-border {
+    position: absolute;
+  }

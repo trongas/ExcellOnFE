@@ -1,0 +1,76 @@
+.notification-tab>.active {
+    @apply text-blue-500 border-b-blue-500 hover:text-blue-500
+}
+
+.notification-icon {
+    text-decoration: none;
+    color: #3392db;
+    /* Màu sắc của icon */
+    font-size: 20px;
+    /* Kích thước của icon */
+}
+
+.notification-icon:hover {
+    color: #007bff;
+    /* Màu sắc khi di chuột qua icon */
+}
+
+.notification-count {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: x-small;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    width: 35px;
+    /* Thay đổi kích thước theo nhu cầu của bạn */
+    height: 35px;
+    /* Thay đổi kích thước theo nhu cầu của bạn */
+    object-fit: cover;
+    /* Đảm bảo hình ảnh không bị méo khi đặt kích thước */
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    /* Hiển thị dropdown dưới biểu tượng thông báo */
+    right: 0;
+    /* Đặt vị trí bên phải của biểu tượng thông báo */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    display: none;
+    /* Ban đầu ẩn dropdown */
+}
+
+.dropdown-content.show {
+    display: block;
+    /* Hiển thị dropdown khi có class 'show' */
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 999;
+    width: 400px; /* Đặt chiều rộng mong muốn */
+    overflow-y: auto; /* Thêm thuộc tính overflow-y để tạo thanh cuộn khi nội dung vượt quá kích thước */
+    max-height: 400px;
+}
+
+/* CSS để làm đẹp cho thông báo chưa đọc */
+
+/* CSS để làm đẹp cho số thông báo chưa đọc */
+.notification-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+}

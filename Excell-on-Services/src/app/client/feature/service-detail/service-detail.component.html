@@ -1,0 +1,31 @@
+<div class="content">
+
+    <div class="relative bg-white rounded-lg shadow">
+        <div mat-dialog-actions class="action">
+            <button
+                class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                type="button" [mat-dialog-close]="false"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="p-4 md:p-5">
+            <div class="grid grid-cols-12 text-center">
+                <!-- <div *ngFor="let image of imageService">
+                    <div *ngIf="image.altText === serviceDetailForm.get('serviceName')?.value">
+                        <img [src]="image.imageSrc" width="92" alt="images-services">
+                    </div>
+                </div> -->
+                <div class="col-span-12 mb-5">
+                    <p class="text-2xl font-extrabold text-blue-900">{{ serviceDetailForm.get('serviceName')?.value }}
+                    </p>
+                </div>
+
+            </div>
+
+            
+            <li class="text-gray-500 mb-6">
+                {{ serviceDetailForm.get('description')?.value }}
+            </li>
+           
+           
+        </div>
+    </div>
+</div>

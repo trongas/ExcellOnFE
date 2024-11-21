@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- <div class=" ">
+        <div class="">
+            <div class="flex items-right mx-auto">
+                <ul class="hidden md:flex md:flex-row list-none md:ml-auto my-5 mx-16">
+                    <li class="text-2xl mr-8 flex flex-row">
+                        <a routerLink=""><i class="text-[#446393] fa-solid fa-phone"></i>
+                            <span class="text-lg ml-1">+0909090909</span>
+                        </a>
+                    </li>
+                    <li class="text-2xl ml-3">
+                        <a routerLink=""><i class="text-[#ffc05c] fa-solid fa-envelope"></i></a>
+                    </li>
+                    <li class="text-2xl ml-3">
+                        <a routerLink=""><i class="text-[#4b8bf5] fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li class="text-2xl ml-3">
+                        <a routerLink=""><i class="text-[#ff0000] fa-brands fa-youtube"></i></a>
+                    </li>
+                    <li class="text-2xl ml-3">
+                        <a routerLink=""><i class="text-[#64e8ff] fa-brands fa-twitter"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div> -->
+    <nav class=" bg-gradient-to-r from-blue-300 to-cyan-200">
+        <div class="">
+            <div class="lg:hidden block grid grid-cols-12">
+                <a class="col-span-9 text-xl font-bold" routerLink="/user/home">
+                    <img class="h-24 ml-20" src="../../../assets/images/Logo2.png" alt="Excell-on" />
+                </a>
+                <div class="col-span-1 mt-7">
+                    <div class="relative nav-item mr-20 ">
+                        <a class="nav-link uppercase hover:text-blue-500" routerLink="/user/payment">
+                            <svg width="34px" height="34px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
+                                        stroke="#000" stroke-width="1.5"></path>
+                                    <path
+                                        d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
+                                        stroke="#000" stroke-width="1.5"></path>
+                                    <path
+                                        d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7"
+                                        stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+                                </g>
+                            </svg>
+                            <div
+                                class="absolute inline-flex items-center justify-center w-5 h-5 text-xs text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+                                {{ totalItems }}</div>
+                        </a>
+                    </div>
+                </div>
+                <button class="col-span-1" type="button" data-drawer-target="drawer-navigation"
+                    data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa-solid fa-list text-3xl"></i>
+                    </span>
+                </button>
+                <!-- drawer component -->
+                <div id="drawer-navigation"
+                    class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800"
+                    tabindex="-1" aria-labelledby="drawer-navigation-label">
+                    <h5 id="drawer-navigation-label"
+                        class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
+                    <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close menu</span>
+                    </button>
+                    <div class="py-4 overflow-y-auto">
+                        <ul class="space-y-2 font-medium">
+                            <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                                <i class="fa-solid fa-house px-2"></i>
+                                <a class="nav-link active uppercase" aria-current="page"
+                                    routerLink="/user/home">Home</a>
+                            </li>
+                            <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                                <i class="fa-solid fa-phone-volume px-2"></i>
+                                <a class="nav-link uppercase  hover:text-blue-500 "
+                                    routerLink="/user/services">Services</a>
+                            </li>
+                            <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                                <i class="fa-regular fa-address-card px-2"></i>
+                                <a class="nav-link uppercase hover:text-blue-500" routerLink="/user/about">About</a>
+                            </li>
+                            <li *ngIf="isLoggedOut; else loggedInPhone">
+                                <div class="nav-item md:mr-3 lg:mr-14 p-2 text-[#446393]">
+                                    <a class=" nav-link uppercase hover:text-blue-900" routerLink="/auth/login">
+                                        Login
+                                    </a>
+                                    |
+                                    <a class=" nav-link uppercase hover:text-blue-900" routerLink="/auth/register">
+                                        Register
+                                    </a>
+                                </div>
+                            </li>
+
+                            <ng-template #loggedInPhone>
+
+                                <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                                    <i class="fa-solid fa-chart-simple px-2"></i>
+                                    <a class="nav-link uppercase hover:text-blue-500"
+                                        routerLink="/user/reports">Reports</a>
+                                </li>
+
+                                <li class="">
+                                    <button type="button"
+                                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                        aria-controls="user-dropdown" data-collapse-toggle="user-dropdown">
+                                        <div role="button"
+                                            class="relative bg-orange-100 outline outline-offset-2 outline-1 outline-orange-500/50 inline-flex items-center justify-center w-8 h-8 overflow-hidden rounded-full dark:bg-gray-600">
+                                            <span class="font-medium text-[#06346d] dark:text-gray-300">{{ (userEmail$ |
+                                                async) ??
+                                                ''
+                                                |
+                                                slice:0:1 | uppercase }}</span>
+                                        </div>
+                                        <svg class="w-3 h-3 ml-32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 4 4 4-4" />
+                                        </svg>
+                                    </button>
+
+                                    <ul id="user-dropdown" class="hidden py-2 space-y-2">
+                                        <li [routerLinkActive]="'active'">
+
+                                            <a routerLink="/user/profile"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                                <i class="fa-solid fa-user px-2"></i>Profile</a>
+                                        </li>
+                                        <li [routerLinkActive]="'active'">
+                                            <a (click)="logout()"
+                                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                                <i class="fa-solid fa-right-from-bracket px-2"></i>Logout</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ng-template>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hidden lg:flex lg:items-center lg:w-auto lg:mx-auto">
+                <a class="lg:ml-16 text-center my-1" routerLink="/user/home">
+                    <img class="h-16 img-logo" src="../../../assets/images/Logo2.png" alt="Excell-on" />
+                </a>
+                <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+                    <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                        <a class="nav-link uppercase" aria-current="page" routerLink="/user/home">Home</a>
+                    </li>
+                    <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                        <a class="nav-link uppercase  hover:text-blue-500 " routerLink="/user/services">Services</a>
+                    </li>
+                    <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                        <a class="nav-link uppercase hover:text-blue-500" routerLink="/user/about">About</a>
+                    </li>
+
+
+                    <li *ngIf="isLoggedOut; else loggedIn">
+                        <div class="nav-item md:mr-3 lg:mr-14 p-2 text-[#446393]">
+                            <a class=" nav-link uppercase hover:text-blue-900" routerLink="/auth/login">
+                                Login
+                            </a>
+                            |
+                            <a class=" nav-link uppercase hover:text-blue-900" routerLink="/auth/register">
+                                Register
+                            </a>
+                        </div>
+                    </li>
+
+                    <ng-template #loggedIn>
+                        <li class="nav-item mx-3 p-2" [routerLinkActive]="'active'">
+                            <a class="nav-link uppercase hover:text-blue-500" routerLink="/user/reports">Reports</a>
+                        </li>
+
+                        <li class="nav-item group mx-3 md:mr-3">
+                            <span class="relative flex float-right h-3 w-3 z-10">
+                                <span
+                                    class="absolute top-0 right-2 animate-ping inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span
+                                    class="top-0 right-2 relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+
+                            <div role="button"
+                                class="relative bg-orange-100 outline outline-offset-2 outline-1 outline-orange-500/50 inline-flex items-center justify-center w-8 h-8 overflow-hidden rounded-full dark:bg-gray-600">
+                                <span class="font-medium text-[#06346d] dark:text-gray-300">{{ (userEmail$ | async) ??
+                                    ''
+                                    |
+                                    slice:0:1 | uppercase }}</span>
+                            </div>
+                            <ul class="hidden group-hover:block absolute z-10 bg-white text-gray-700">
+                                <li><a class="block px-4 py-2" [routerLinkActive]="'active'"
+                                        routerLink="/user/profile">Profile</a></li>
+                                <li><button class="block px-4 py-2" (click)="logout()"
+                                        [routerLinkActive]="'active'">Logout</button></li>
+                            </ul>
+                        </li>
+                        <li class="relative nav-item mr-14 ml-5">
+                            <a class="nav-link uppercase hover:text-blue-500" routerLink="/user/payment">
+                                <svg width="34px" height="34px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
+                                            stroke="#000" stroke-width="1.5"></path>
+                                        <path
+                                            d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
+                                            stroke="#000" stroke-width="1.5"></path>
+                                        <path
+                                            d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7"
+                                            stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+                                    </g>
+                                </svg>
+                                <div
+                                    class="absolute inline-flex items-center justify-center w-5 h-5 text-xs text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+                                    {{ totalItems }}</div>
+                            </a>
+                        </li>
+
+                    </ng-template>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
+
+</html>
