@@ -36,20 +36,16 @@
 ## How to Run the Project
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repository-url.git
+https://github.com/trongas/ExcellOnFE.git
 Navigate to the project directory:
-bash
-
 cd excellon-fe
+
 Install dependencies:
-bash
-
 npm install
-Start the development server:
-bash
 
+Start the development server:
 npm start
+
 Open the application in your browser at http://localhost:4200.
 
 ### Features
