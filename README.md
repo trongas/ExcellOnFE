@@ -28,6 +28,9 @@
 ### Cart
 ![Cart Page](https://github.com/user-attachments/assets/d3e5c36d-435c-4f97-a644-a5bf23c1507d)
 
+### Chat
+![Screenshot 2024-11-11 161802](https://github.com/user-attachments/assets/66b4310b-5643-4e1e-b69b-98104d0d32a5)
+
 ### Profile
 ![Profile Page](https://github.com/user-attachments/assets/d8eee69b-0065-4599-80ef-8ba0553369fc)
 
